@@ -1,0 +1,15 @@
+<h1>Watched Movies</h1>
+
+<% @movies.each do |movie| %>
+  <h3><%= movie.title %></h3>
+
+  <p>
+    Genre: <%= movie.genre %><br>
+    Director: <%= movie.director %><br>
+    Rating: <%= movie.rating %>
+  </p>
+
+  <hr>
+<% end %>
+
+<%= link_to "Back", movies_path %>

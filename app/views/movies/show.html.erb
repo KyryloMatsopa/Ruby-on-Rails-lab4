@@ -1,0 +1,24 @@
+<h1><%= @movie.title %></h1>
+
+<p>
+  Genre: <%= @movie.genre %>
+</p>
+
+<p>
+  Director: <%= @movie.director %>
+</p>
+
+<p>
+  Release date: <%= @movie.release_date %>
+</p>
+
+<p>
+  Rating: <%= rating_badge(@movie) %>
+</p>
+
+<p>
+  Status: <%= @movie.status %>
+</p>
+
+<%= link_to "Edit", edit_movie_path(@movie) %> |
+<%= link_to "Back", movies_path %>

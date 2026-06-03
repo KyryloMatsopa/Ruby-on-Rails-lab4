@@ -1,0 +1,37 @@
+# PostgreSQL. Versions 9.5 and up are supported.
+#
+# Install the pg driver:
+#   gem install pg
+#
+# Configure Using Gemfile
+# gem "pg"
+#
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: movie_catalog_development
+  username: postgres
+  password: 6768
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: movie_catalog_test
+  username: postgres
+  password: 6768
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: movie_catalog_production
+  username: postgres
+  password: 6768
+  host: localhost
+  port: 5432

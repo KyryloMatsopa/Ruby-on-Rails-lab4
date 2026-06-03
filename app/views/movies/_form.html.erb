@@ -1,0 +1,43 @@
+<%= form_with model: movie do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :genre, class: "form-label" %>
+    <%= form.select :genre,
+        Genre.pluck(:name),
+        {},
+        class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :director, class: "form-label" %>
+    <%= form.text_field :director, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :release_date, class: "form-label" %>
+    <%= form.date_field :release_date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :rating, class: "form-label" %>
+    <%= form.number_field :rating,
+        step: 0.1,
+        class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label" %>
+    <%= form.select :status,
+        Movie.statuses.keys,
+        {},
+        class: "form-control" %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+
+<% end %>

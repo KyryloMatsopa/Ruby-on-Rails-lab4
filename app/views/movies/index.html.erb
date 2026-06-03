@@ -1,0 +1,42 @@
+<h1>Movies</h1>
+
+<%= link_to "New Movie", new_movie_path, class: "btn btn-primary" %>
+<%= link_to "Watched Movies", watched_movies_path, class: "btn btn-secondary" %>
+
+<br><br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Director</th>
+      <th>Rating</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.genre %></td>
+        <td><%= movie.director %></td>
+        <td><%= rating_badge(movie) %></td>
+        <td><%= movie.status %></td>
+
+        <td>
+          <%= link_to "Show", movie_path(movie), class: "btn btn-sm btn-info" %>
+          <%= link_to "Edit", edit_movie_path(movie), class: "btn btn-sm btn-warning" %>
+          <%= link_to "Delete", movie_path(movie),
+              class: "btn btn-sm btn-danger",
+              data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
